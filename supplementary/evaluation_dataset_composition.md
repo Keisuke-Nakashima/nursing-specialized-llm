@@ -1,6 +1,6 @@
 # Supplementary Results: Effect of Training Dataset Size and Composition
 
-These results extend Sections IV-A.6 and IV-B of the paper. All models are Ns-LLMs based on Gemma2-S-9B, used with Whisper large-v3-turbo. The dataset labels ($\mathrm{Sx}j$, $\mathrm{Ox}k$) and their sizes are given in `dataset_details.md`.
+These results extend Sections IV-A.6 and IV-B of the paper. All models are Ns-LLMs based on Gemma2-S-9B, used with Whisper large-v3-turbo. The dataset labels ($`\mathrm{Sx}j`$, $`\mathrm{Ox}k`$) and their sizes are given in `dataset_details.md`.
 
 ## Internal evaluation
 
@@ -30,4 +30,4 @@ Figure S3 shows the results on the 100 synthetic test records of the external ev
 
 <img src="fig/cer_vs_equal_so_data_amount_testset_only.png" alt="Effect of jointly scaling the S and O dataset sizes on CER for the synthetic test records" width="350">
 
-We evaluated the change in CER when the amounts of S and O data are scaled jointly ($\mathrm{Sx}k$, $\mathrm{Ox}k$). No correction failures were observed, and hence no samples were excluded from the computation of the averages. As with the results for O records in the internal evaluation, the CER on the synthetic test records tends to decrease as the amount of training data increases, reaching 6.43% for the Sx8, Ox8 dataset (the 8x model in Table II of the paper). Compared with the CER for O records in the internal evaluation at the same training dataset size, however, the CER is approximately 1 percentage point higher: 7.91% versus 6.85% for the Sx1, Ox1 dataset, with a gap of similar magnitude for the Sx8, Ox8 dataset. This gap may reflect differences between the records used in the internal evaluation and the independently constructed synthetic test records.
+We evaluated the change in CER when the amounts of S and O data are scaled jointly ($`\mathrm{Sx}k`$, $`\mathrm{Ox}k`$). No correction failures were observed, and hence no samples were excluded from the computation of the averages. As with the results for O records in the internal evaluation, the CER on the synthetic test records tends to decrease as the amount of training data increases, reaching 6.43% for the Sx8, Ox8 dataset (the 8x model in Table II of the paper). Compared with the CER for O records in the internal evaluation at the same training dataset size, however, the CER is approximately 1 percentage point higher: 7.91% versus 6.85% for the Sx1, Ox1 dataset, with a gap of similar magnitude for the Sx8, Ox8 dataset. This gap may reflect differences between the records used in the internal evaluation and the independently constructed synthetic test records.
