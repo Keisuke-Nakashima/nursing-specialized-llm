@@ -38,9 +38,10 @@ OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "result_preference_testset"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 SOURCE_FILES = {
-    "amivoice_general": "amivoice_results_general.xlsx",
     "amivoice_medical": "amivoice_results_medical.xlsx",
+    "amivoice_medical-input": "amivoice_results_medical-input.xlsx",
     "gemma-9b_large-v3-turbo": "infer_O_testset_gemma-9b_cer_large-v3-turbo_vllm.xlsx",
+    "gemma-9b_S8O8_large-v3-turbo_vllm": "infer_O_testset_gemma-9b_S8O8_cer_large-v3-turbo_vllm.xlsx",
 }
 
 DEFAULT_SOURCE1 = "gemma-9b_large-v3-turbo"

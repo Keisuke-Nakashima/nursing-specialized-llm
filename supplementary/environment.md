@@ -64,6 +64,15 @@ Parameters of the five-step procedure in Section III-A of the paper.
 
 See `tts/generate_voice_text.py` and `tts/generate_voice_text_common.py` for the implementation.
 
+## AmiVoice API (external evaluation)
+
+The two medical engines of the AmiVoice API (Advanced Media, Inc.) were used as commercial baselines in Section IV-B of the paper. Each WAV file in `testset/wav/` was submitted as is to the synchronous HTTP endpoint without logging (`https://acp-api.amivoice.com/v1/nolog/recognize`), and the processing time is the round-trip time of the request.
+
+| Name in the paper | Engine ID | Official name | Accessed |
+|---|---|---|---|
+| AmiVoice-Medical | `-a-medical` | 会話_医療 (medical engine for conversation) | 20:23–20:27 JST, April 19, 2026 |
+| AmiVoice-Medical-Input | `-a-medical-input` | 音声入力_医療 (medical engine for dictation) | 18:36–18:39 JST, October 9, 2026 |
+
 ## Whisper transcription
 
 - Language: Japanese (`language="ja"`), fp16 on CUDA.

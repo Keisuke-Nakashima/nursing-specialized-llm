@@ -57,15 +57,16 @@ Pairwise preference evaluation of two outputs with an LLM-as-a-Judge (OpenAI Res
   Each record is judged twice with the order of Candidates A and B swapped. A preference is counted only when the judge selects the same output in both runs, and all other cases are counted as ties. Supports checkpointing and resuming.
 - `checkpoint_utils.py` — checkpoint I/O helpers used by the script.
 - `pyproject.toml` — `uv` dependency specification of the inference environment used to produce the outputs of the proposed method.
-- `infer_O_testset_gemma-9b_cer_large-v3-turbo_vllm.xlsx` — outputs of the proposed method with the 1x model (Whisper large-v3-turbo + Ns-LLM based on Gemma-2-Llama Swallow 9B (Gemma2-S-9B) trained on the Sx1, Ox1 dataset) on the test records.
-- `amivoice_results_medical.xlsx`, `amivoice_results_general.xlsx` — transcriptions of the test audio by the AmiVoice API medical and general-purpose engines (general-purpose engine accessed 21:47–21:52 JST on April 18, 2026; medical engine accessed 20:23–20:27 JST on April 19, 2026).
-- `preference_pairwise_testset_api_gemma-9b_large-v3-turbo_vs_amivoice_medical.xlsx` — judgment results reported in the paper (judge: GPT-5.4, reasoning effort: medium; run on May 5, 2026).
+- `infer_O_testset_gemma-9b_cer_large-v3-turbo_vllm.xlsx`, `infer_O_testset_gemma-9b_S8O8_cer_large-v3-turbo_vllm.xlsx` — outputs of the proposed method with the 1x and 8x models (Whisper large-v3-turbo + Ns-LLM based on Gemma-2-Llama Swallow 9B (Gemma2-S-9B) trained on the Sx1, Ox1 and Sx8, Ox8 datasets, respectively) on the test records.
+- `amivoice_results_medical.xlsx`, `amivoice_results_medical-input.xlsx` — transcriptions of the test audio by the two medical engines of the AmiVoice API: the engine for conversation (`-a-medical`, AmiVoice-Medical in the paper; accessed 20:23–20:27 JST on April 19, 2026) and the engine for dictation (`-a-medical-input`, AmiVoice-Medical-Input in the paper; accessed 18:36–18:39 JST on October 9, 2026).
+- `preference_pairwise_testset_api_gemma-9b_large-v3-turbo_vs_amivoice_medical.xlsx` — judgment results reported in the paper (1x model vs. AmiVoice-Medical; judge: GPT-5.4, reasoning effort: medium).
+- `preference_pairwise_testset_api_gemma-9b_large-v3-turbo_vs_amivoice_medical-input.xlsx`, `preference_pairwise_testset_api_gemma-9b_S8O8_large-v3-turbo_vllm_vs_amivoice_medical-input.xlsx` — judgment results for the 1x and 8x models vs. AmiVoice-Medical-Input, reported in `supplementary/preference_amivoice_medical_input.md` (same judge settings).
 
 Requirements: Python 3.10+, `pandas`, `openpyxl`, `requests`.
 
 Before running, replace `YOUR_OPENAI_API_KEY` in `DEFAULT_API_KEY` at the top of the script with your OpenAI API key.
 
-By default, the script compares the proposed method (`--source1 gemma-9b_large-v3-turbo`) with AmiVoice-Medical (`--source2 amivoice_medical`) using `gpt-5.4` as the judge model. The results are saved to `result_preference_testset/` in the script's directory.
+By default, the script compares the proposed method (`--source1 gemma-9b_large-v3-turbo`) with AmiVoice-Medical (`--source2 amivoice_medical`) using `gpt-5.4` as the judge model. The other sources are `gemma-9b_S8O8_large-v3-turbo_vllm` (8x model) and `amivoice_medical-input`. The results are saved to `result_preference_testset/` in the script's directory.
 
 ### `supplementary/`
 
@@ -74,6 +75,7 @@ Supplementary material referenced in the paper.
 - `dataset_details.md` — construction procedure, rules for unifying notational variants, and four tables: filtering results for each Whisper model (Table S1), filtering results for each subset (Table S2), the composition of each training dataset variant (Table S3), and the sizes of the merged datasets (Table S4).
 - `environment.md` — software versions, TTS parameters, VAD preprocessing parameters, and vLLM decoding settings (Sections III-A and IV-A.1 of the paper).
 - `evaluation_dataset_composition.md` — supplementary results on the effect of training dataset size and composition (Figures S1 to S3, with the corresponding PNG files in `fig/`), extending Sections IV-A.6 and IV-B of the paper.
+- `preference_amivoice_medical_input.md` — preference judgments by the LLM-as-a-Judge for the pairs involving AmiVoice-Medical-Input (Table S5) and the numbers of punctuation marks in the outputs (Table S6), extending Section IV-B.3 of the paper.
 
 ## License
 
