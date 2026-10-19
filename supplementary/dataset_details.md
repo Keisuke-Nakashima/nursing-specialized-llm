@@ -1,6 +1,6 @@
 # Supplementary: Training Dataset Details
 
-This file gives the details of the training datasets used in the internal evaluation of the paper: the filtering results for each Whisper model (Section IV-A.2, Table S1) and the datasets used in the dictionary ablation (Section IV-A.5) and the dataset-size experiments (Section IV-A.6, Tables S2–S4).
+This file gives the details of the training datasets used in the internal evaluation of the paper. Table S1 shows the filtering results for each Whisper model (Section IV-A.2). Table S2 shows the filtering results for each subset, including the datasets reconstructed for the dictionary ablation (Sections IV-A.5 and IV-A.6). Tables S3 and S4 give the composition and sizes of the datasets used in the dataset-size experiments (Section IV-A.6).
 
 ## Construction
 
